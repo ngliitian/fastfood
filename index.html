@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Food Consumption and Obesity</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include Vega, Vega-Lite, and Vega-Embed libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+  <h1>Fast Food Consumption and Obesity </h1>
+  <p> According to the ABS criteria, people with a Body Mass Index (BMI) of 25+ are considered to be overweight or obese. Australia ranked 10th out of 21 countries who are overweight or obese (64%), which is higher than the OECD average of 59%. </p>
+
+  <!-- map obesity -->
+  <h2>Obesity rate</h2>
+  <p>We clearly seen that, the obesity rate is incraesing linearly over the time. Tasmania is currently the most overweight state, with 68 per cent of adults classified overweight or obese. </p>
+  <div id="map_obesity"></div>
+
+  <!-- bubble chart -->
+  <h2>Number of fast food retails</h2>
+  <div id="bubble_chart"></div>
+
+  <!-- Bar Chart -->
+  <h2>Top 10 Fast Food Retail </h2>
+  <div id="bar_chart"></div>
+
+  <!-- pie chart -->
+  <h2>The Proportion of Fast Food Categories</h2>
+  <p>Less than 7% of people in Australia consume a healthy diet consistent with the Australian Dietary Guidelines</p>
+  <div id="pie"></div>
+
+  <p>71% of men and 61% of women were living with overweight or obesity.</p>
+
+  <script>
+    // map obesity
+    vegaEmbed('#map_obesity', 'map_obesity.json').then(function(result) {
+      console.log(result);
+    }).catch(console.error);
+
+    // Bubble Chart
+    vegaEmbed('#bubble_chart', 'bubble_chart.json').then(function(result) {
+      console.log(result);
+    }).catch(console.error);
+
+    // Bar Chart
+    vegaEmbed('#bar_chart', 'bar_chart.json').then(function(result) {
+      console.log(result);
+    }).catch(console.error);
+
+    // Pie Chart
+    vegaEmbed('#pie', 'pie.json').then(function(result) {
+      console.log(result);
+    }).catch(console.error);
+  </script>
+</body>
+</html>
+
