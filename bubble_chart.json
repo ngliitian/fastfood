@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Number of fast food locations in Australia",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/retails.csv"
+  },
+  "mark": "circle",
+  "encoding": {
+    "x": {"field": "state", "type": "nominal", "title": "State"},
+    "y": {
+      "field": "retails",
+      "type": "quantitative",
+      "title": "Number of Fast Food Retails"
+    },
+    "size": {
+      "field": "retails",
+      "type": "quantitative",
+      "scale": {"range": [100, 10000]}
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "legend": {"title": "State"}
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {
+        "field": "retails",
+        "type": "quantitative",
+        "title": "Number of Fast Food Retails"
+      }
+    ]
+  },
+  "selection": {
+    "state_selection": {"type": "multi", "fields": ["state"], "bind": "legend"}
+  },
+  "transform": [{"filter": {"selection": "state_selection"}}],
+  "config": {}
+}

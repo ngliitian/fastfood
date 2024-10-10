@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "The Proportion of Fast Food Categories",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/categories.csv"
+  },
+  "mark": {"type": "arc"},
+  "encoding": {
+    "theta": {
+      "field": "total",
+      "type": "quantitative",
+      "title": "Proportion (%)"
+    },
+    "color": {
+      "field": "type",
+      "type": "nominal",
+      "scale": {"scheme": "viridis"},
+      "legend": {"title": "Fast Food Types", "interactive": true}
+    },
+    "tooltip": [
+      {"field": "type", "type": "nominal", "title": "Fast Food Category"},
+      {"field": "total", "type": "quantitative", "title": "Proportion (%)"}
+    ]
+  },
+  "selection": {
+    "type_selection": {"type": "multi", "fields": ["type"], "bind": "legend"}
+  },
+  "transform": [{"filter": {"selection": "type_selection"}}],
+  "config": {}
+}

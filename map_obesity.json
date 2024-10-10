@@ -1,0 +1,33 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Obesity rate",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "equirectangular"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/STE_2021_AUST_GDA2020.json",
+    "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STE_NAME21",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/consumption_per_capita.csv",
+          "format": {"type": "csv"}
+        },
+        "key": "state",
+        "fields": ["obesity_rate"]
+      }
+    }
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {"field": "obesity_rate", "type": "quantitative"},
+    "tooltip": [
+      {"field": "properties.STE_NAME21", "type": "nominal", "title": "State"},
+      {"field": "obesity_rate", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
