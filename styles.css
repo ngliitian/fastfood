@@ -1,0 +1,28 @@
+body {
+  background-color: #f8f9fa; /* Light grey background for readability */
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+h1, h2 {
+  color: #2c3e50; /* Dark blue for headings */
+}
+
+p {
+  line-height: 1.6;
+}
+
+div {
+  margin: 20px 0;
+}
+
+#obesity_map, #consumption_map, #bubble_chart, #bar_chart, #pie, #butterfly_chart {
+  width: 100%;
+  height: 400px; /* Ensuring all graphs are the same size */
+}
+
+@media (max-width: 768px) {
+  #obesity_map, #consumption_map, #bubble_chart, #bar_chart, #pie, #butterfly_chart {
+    height: 300px; /* Smaller size for smaller screens */
+  }
+}

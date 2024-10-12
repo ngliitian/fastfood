@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Food Consumption and Obesity</title>
+  <title>Fast Food Consumption and Obesity in Australia</title>
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="styles.css">
   <!-- Include Vega, Vega-Lite, and Vega-Embed libraries -->
@@ -13,19 +13,25 @@
 </head>
 
 <body>
-  <h1>Fast Food Consumption and Obesity </h1>
-  <p> According to the ABS criteria, people with a Body Mass Index (BMI) of 25+ are considered to be overweight or obese. Australia ranked 10th out of 21 countries who are overweight or obese (64%), which is higher than the OECD average of 59%. </p>
+  <h1>Fast Food Consumption and Obesity in Australia</h1>
+  <p> According to the ABS criteria, people with a Body Mass Index (BMI) of 25+ are considered to be overweight or obese. 
+    Australia ranks 10th out of 21 countries for the percentage of overweight or obese individuals, with 64% of the population affected. 
+    This figure is higher than the OECD average of 59%, which highlights the growing health issue facing the country. </p>
 
-  <!-- map obesity -->
-  <h2>Obesity rate</h2>
-  <p>We clearly seen that, the obesity rate is incraesing linearly over the time. Tasmania is currently the most overweight state, with 68 per cent of adults classified overweight or obese. </p>
-  <div id="map_obesity"></div>
+  <!-- map -->
+  <h2>Obesity rate by State</h2>
+  <p>We clearly seen that, the obesity rate is incraesing linearly over the time. Tasmania has the highest obesity rate, with 68% of adults classified as overweight or obese </p>
+  <div id="obesity_map"></div>
+
+  <h2>Fast Food Consumption by Region</h2>
+  <div id="consumption_map"></div>
 
   <!-- bubble chart -->
   <h2>Number of fast food retails</h2>
   <div id="bubble_chart"></div>
 
   <!-- Bar Chart -->
+   <p> 51.5 million visits to fast food restaurants every month. Below show the most visited Fast Food Retails in Australia. </p>
   <h2>Top 10 Fast Food Retail </h2>
   <div id="bar_chart"></div>
 
@@ -34,11 +40,19 @@
   <p>Less than 7% of people in Australia consume a healthy diet consistent with the Australian Dietary Guidelines</p>
   <div id="pie"></div>
 
+  <!-- butterfly chart -->
+  <h2>Gender Disparities in Fast Food Consumption</h2>
+  <div id="butterfly_chart"></div>
   <p>71% of men and 61% of women were living with overweight or obesity.</p>
+  
 
   <script>
     // map obesity
-    vegaEmbed('#map_obesity', 'map_obesity.json').then(function(result) {
+    vegaEmbed('#obesity_map', 'obesity_map.json').then(function(result) {
+      console.log(result);
+    }).catch(console.error);
+
+    vegaEmbed('#consumption_map', 'consumption_map.json').then(function(result) {
       console.log(result);
     }).catch(console.error);
 
@@ -54,6 +68,11 @@
 
     // Pie Chart
     vegaEmbed('#pie', 'pie.json').then(function(result) {
+      console.log(result);
+    }).catch(console.error);
+
+    // butterfly chart
+    vegaEmbed('#butterfly_chart', 'butterfly_chart.json').then(function(result) {
       console.log(result);
     }).catch(console.error);
   </script>
