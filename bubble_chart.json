@@ -8,16 +8,17 @@
   },
   "mark": "circle",
   "encoding": {
-    "x": {"field": "state", "type": "nominal", "title": "State"},
+    "x": {"field": "state", "type": "nominal", "title": "State", "axis": null},
     "y": {
       "field": "retails",
       "type": "quantitative",
-      "title": "Number of Fast Food Retails"
+      "title": "Number of Fast Food Retails",
+      "axis": {"grid": false}
     },
     "size": {
       "field": "retails",
       "type": "quantitative",
-      "scale": {"range": [100, 10000]}
+      "scale": {"range": [100, 2500]}
     },
     "color": {
       "field": "state",

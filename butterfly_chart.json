@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging stacked bar chart (butterfly chart) for male and female consumption by age group.",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/gender.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "age_group",
+      "type": "ordinal",
+      "title": "Age Group",
+      "sort": ["15-24", "25-34", "35-44", "45-54", "55+"]
+    },
+    "x": {
+      "field": "consumption",
+      "type": "quantitative",
+      "title": "Fast Food Consumption",
+      "axis": {"grid": false}
+    },
+    "color": {
+      "field": "gender",
+      "type": "nominal",
+      "scale": {"domain": ["Male", "Female"], "range": ["#89CFF0", "#FFB6C1"]},
+      "legend": {"title": "Gender"}
+    },
+    "tooltip": [
+      {"field": "age_group", "type": "ordinal", "title": "Age Group"},
+      {"field": "gender", "type": "nominal", "title": "Gender"},
+      {"field": "consumption", "type": "quantitative", "title": "Consumption"}
+    ]
+  },
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
+}

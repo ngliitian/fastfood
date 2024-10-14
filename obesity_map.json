@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Obesity Rate per State from 2020 to 2022",
+  "width": 850,
+  "height": 400,
+  "projection": {"type": "equirectangular"},
+  "data": {
+    "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/consumption_per_capita.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "year_selection",
+      "value": 2022,
+      "bind": {
+        "input": "range",
+        "min": 2020,
+        "max": 2022,
+        "step": 1,
+        "name": "Select Year"
+      }
+    }
+  ],
+  "transform": [
+    {
+      "lookup": "state",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/STE_2021_AUST_GDA2020.json",
+          "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+        },
+        "key": "properties.STE_NAME21"
+      },
+      "as": "geo"
+    },
+    {"filter": "datum.year == year_selection"},
+    {
+      "window": [
+        {"op": "max", "field": "obesity_rate", "as": "max_obesity_rate"}
+      ],
+      "frame": [null, null]
+    },
+    {
+      "calculate": "'The state with the highest obesity rate is ' + datum.state + ' with ' + datum.obesity_rate + '%.'",
+      "as": "highest_obesity_text"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "geoshape", "stroke": "white"},
+      "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
+        "color": {
+          "field": "obesity_rate",
+          "type": "quantitative",
+          "title": "Obesity Rate (%)",
+          "scale": {"range": ["#FFD7B5", "#D62828"]}
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {
+            "field": "obesity_rate",
+            "type": "quantitative",
+            "title": "Obesity Rate (%)"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "black",
+        "align": "center"
+      },
+      "transform": [{"filter": "datum.obesity_rate == datum.max_obesity_rate"}],
+      "encoding": {
+        "text": {"field": "highest_obesity_text"},
+        "x": {"value": 300},
+        "y": {"value": 420}
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}

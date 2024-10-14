@@ -1,29 +1,45 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Top 10 Fast Food Retail Chains",
-  "width": 800,
+  "width": 850,
   "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/ngliitian/fastfood/refs/heads/main/top.csv"
   },
-  "mark": "bar",
-  "encoding": {
-    "x": {
-      "field": "total",
-      "type": "quantitative",
-      "title": "Number of Locations",
-      "axis": {"grid": false}
+  "layer": [
+    {
+      "mark": {"type": "bar", "color": "#FF8C00"},
+      "encoding": {
+        "x": {
+          "field": "total",
+          "type": "quantitative",
+          "title": "Number of Locations",
+          "axis": {"grid": false}
+        },
+        "y": {
+          "field": "retails",
+          "type": "nominal",
+          "sort": "-x",
+          "title": "Fast Food Chain"
+        },
+        "tooltip": [
+          {"field": "retails", "type": "nominal", "title": "Fast Food Chain"},
+          {
+            "field": "total",
+            "type": "quantitative",
+            "title": "Number of Locations"
+          }
+        ]
+      }
     },
-    "y": {
-      "field": "retails",
-      "type": "nominal",
-      "sort": "-x",
-      "title": "retails"
-    },
-    "tooltip": [
-      {"field": "retails", "type": "nominal", "title": "Fast Food Chain"},
-      {"field": "total", "type": "quantitative", "title": "Number of Locations"}
-    ]
-  },
-  "config": {}
+    {
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 5},
+      "encoding": {
+        "x": {"field": "total", "type": "quantitative"},
+        "y": {"field": "retails", "type": "nominal", "sort": "-x"},
+        "text": {"field": "total", "type": "quantitative"}
+      }
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}, "axis": {"domainWidth": 1}}
 }

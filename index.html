@@ -14,37 +14,40 @@
 
 <body>
   <h1>Fast Food Consumption and Obesity in Australia</h1>
-  <p> According to the ABS criteria, people with a Body Mass Index (BMI) of 25+ are considered to be overweight or obese. 
+  <p> According to the <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-survey-state-and-territory-findings/2022#key-statistics" target="_blank">ABS criteria</a>, people with a Body Mass Index (BMI) of 25+ are considered to be overweight or obese. 
     Australia ranks 10th out of 21 countries for the percentage of overweight or obese individuals, with 64% of the population affected. 
     This figure is higher than the OECD average of 59%, which highlights the growing health issue facing the country. </p>
+    
 
   <!-- map -->
-  <h2>Obesity rate by State</h2>
-  <p>We clearly seen that, the obesity rate is incraesing linearly over the time. Tasmania has the highest obesity rate, with 68% of adults classified as overweight or obese </p>
-  <div id="obesity_map"></div>
-
-  <h2>Fast Food Consumption by Region</h2>
   <div id="consumption_map"></div>
 
+  <h2>Which State has the highest obesity rate ?</h2>
+  <p>We clearly seen that, the obesity rate is incraesing linearly over the time. Tasmania has the highest obesity rate, with 68% of adults classified as overweight or obese.
+    This could be due to a variety of factors, such as socioeconomic challenges, limited access to fresh food, and fewer opportunities for physical activity. 
+    Understanding these regional disparities can help target public health campaigns where they are needed the most.</p>
+  <div id="obesity_map"></div>
+
   <!-- bubble chart -->
-  <h2>Number of fast food retails</h2>
+  <h2>How Many Fast Food Outlets Are in Your State?</h2>
   <div id="bubble_chart"></div>
 
   <!-- Bar Chart -->
-   <p> 51.5 million visits to fast food restaurants every month. Below show the most visited Fast Food Retails in Australia. </p>
-  <h2>Top 10 Fast Food Retail </h2>
+<p> Research claimed that approximately 51.5 million visits to fast food restaurants in each month. </p>
+<h2>Top 10 Fast Food Chains: Who's Leading the Race?</h2>
+<p>Which fast food brands dominate Australia's market? The bar chart below showcases the number of store in Australia. </p>
   <div id="bar_chart"></div>
 
   <!-- pie chart -->
-  <h2>The Proportion of Fast Food Categories</h2>
-  <p>Less than 7% of people in Australia consume a healthy diet consistent with the Australian Dietary Guidelines</p>
+  <h2>Fast Food Category most orders</h2>
+  <p>Are burgers more popular than pizzas? Click the legend to find out!</p>
   <div id="pie"></div>
 
   <!-- butterfly chart -->
-  <h2>Gender Disparities in Fast Food Consumption</h2>
-  <div id="butterfly_chart"></div>
-  <p>71% of men and 61% of women were living with overweight or obesity.</p>
-  
+  <h2>Does Male or Female Consume More Fast Food?</h2>
+    <p>Did you know that <a href="https://www.obesityevidencehub.org.au/collections/trends/adults-australia" target="_blank">71% of men and 61% of women in Australia</a> are classified as overweight or obese.
+      Less than 7% of people in Australia consume a healthy diet consistent with the Australian Dietary Guidelines.</p>
+    <div id="butterfly_chart"></div>
 
   <script>
     // map obesity
